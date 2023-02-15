@@ -90,7 +90,7 @@ public class ParcosImportSys {
             
             
             
-            File myFile = new File("/home/narayan/Downloads/parcosam.xlsx");
+            File myFile = new File("/home/narayan/Downloads/Parcosham.xlsx");
             fis = new FileInputStream(myFile);
             // Finds the workbook instance for XLSX file
             XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
@@ -868,7 +868,7 @@ public class ParcosImportSys {
             
 
             
-        try (FileOutputStream outputStream = new FileOutputStream("/home/narayan/ParcosDump.xlsx")) {
+        try (FileOutputStream outputStream = new FileOutputStream("/home/narayan/ParcosDumpNew.xlsx")) {
             writerworkbook.write(outputStream);
         }
 
