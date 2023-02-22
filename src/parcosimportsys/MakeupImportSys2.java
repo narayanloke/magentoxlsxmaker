@@ -107,7 +107,7 @@ public class MakeupImportSys2 {
             
             
             
-            File myFile = new File("/home/narayan/Downloads/makupmass.xlsx");
+            File myFile = new File("C:/Users/Shashikant/Downloads/makupmass.xlsx");
             fis = new FileInputStream(myFile);
             // Finds the workbook instance for XLSX file
             XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
@@ -851,7 +851,7 @@ public class MakeupImportSys2 {
             configurablevariations.setCellValue(genrated);
 
             Cell configurablevariationslabel=rowexl.createCell(40);
-            configurablevariationslabel.setCellValue("size=Size");
+            configurablevariationslabel.setCellValue("shade=Shade");
             
             
             childs.clear();
@@ -891,7 +891,7 @@ public class MakeupImportSys2 {
             
 
             
-        try (FileOutputStream outputStream = new FileOutputStream("/home/narayan/MakeupDump.xlsx")) {
+        try (FileOutputStream outputStream = new FileOutputStream("C:/Users/Shashikant/Downloads/MakeupDump.xlsx")) {
             writerworkbook.write(outputStream);
         }
 

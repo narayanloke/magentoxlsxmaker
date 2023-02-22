@@ -82,7 +82,7 @@ public class MakeupExcelo {
             
             
             
-            File myFile = new File("/home/narayan/Downloads/makupmass.xlsx");
+            File myFile = new File("C:/Users/Shashikant/Downloads/makupmass.xlsx");
             fis = new FileInputStream(myFile);
             // Finds the workbook instance for XLSX file
             XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
@@ -256,16 +256,16 @@ public class MakeupExcelo {
                           Row rowtmp=mySheet.getRow(childs.get(chx).getNodenumber());
                           System.out.println("FOUND THE NOS AS FOLLOWS:"+childs.get(chx).getNodenumber());
                           if(sizex==chx){
-                            String pokox=roz.getCell(27,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+                            String pokox=roz.getCell(25,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
                             StringTokenizer stkx=new StringTokenizer(pokox,".");
                             //cellbotsize.setCellValue(stkx.nextToken());
-                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+pokox+"";
+                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",shade="+pokox+"";
                           }
                           else {
                               
-                            String pokox=roz.getCell(27,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+                            String pokox=roz.getCell(25,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
                             StringTokenizer stkx=new StringTokenizer(pokox,".");
-                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+pokox+"|";
+                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",shade="+pokox+"|";
                           }
                           System.out.println("Generated String as follows.");
                       }
@@ -274,7 +274,7 @@ public class MakeupExcelo {
                       configurablevariations.setCellValue(genrated);
                       
                       Cell configurablevariationslabel=rowex.createCell(88);
-                      configurablevariationslabel.setCellValue("size=Size");
+                      configurablevariationslabel.setCellValue("shade=Shade");
                       
                       
                       childs.clear();
@@ -406,10 +406,10 @@ public class MakeupExcelo {
                           Row rowtmp=mySheet.getRow(childs.get(chx).getNodenumber());
                           System.out.println("FOUND THE NOS AS FOLLOWS:"+childs.get(chx).getNodenumber());
                           if(sizex==chx){
-                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+rowtmp.getCell(27).toString()+"";
+                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",shade="+rowtmp.getCell(25).toString()+"";
                           }
                           else {
-                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+rowtmp.getCell(27).toString()+"|";
+                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",shade="+rowtmp.getCell(25).toString()+"|";
                           }
                           System.out.println("Generated String as follows.");
                       }
@@ -418,7 +418,7 @@ public class MakeupExcelo {
                      // configurablevariations.setCellValue(genrated);
                       
                       Cell configurablevariationslabel=rowex.createCell(88);
-                      configurablevariationslabel.setCellValue("size=Size");
+                      configurablevariationslabel.setCellValue("shade=Shade");
                       
                       lastparentid=globalcount;    
                       childs.clear();
@@ -701,7 +701,7 @@ public class MakeupExcelo {
             
 
             
-        try (FileOutputStream outputStream = new FileOutputStream("/home/narayan/MakeupDumper.xlsx")) {
+        try (FileOutputStream outputStream = new FileOutputStream("C:/Users/Shashikant/Downloads/MakeupDumper.xlsx")) {
             writerworkbook.write(outputStream);
         }
 
