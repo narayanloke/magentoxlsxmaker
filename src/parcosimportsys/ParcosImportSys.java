@@ -73,7 +73,7 @@ public class ParcosImportSys {
   
         // Creating an empty TreeMap of string and Object][]
         // type
-        Object[][] datawriter = {{ "sku","store_view_code","attribute_set_code","product_type","categories","name","description","meta_title","meta_keyword","meta_description","product_websites","short_description","weight","product_online","tax_class_name","hsn_code","visibility","price","shelf_life","fregrance_color_name","gender","product_contains_liquid","sm2_product_features","dimensions","country","size","unit","ref","brand_name","is_featured","is_bestseller","occasion","scent","manufacturer_detail","packer_detail","manufacturing_name","fragrance_family","fragrence_personality","authenticity","configurable_variations","configurable_variation_labels"}};
+        Object[][] datawriter = {{ "sku","store_view_code","attribute_set_code","product_type","categories","name","description","meta_title","meta_keyword","meta_description","product_websites","short_description","weight","product_online","tax_class_name","hsn_code","visibility","price","shelf_life","fregrance_color_name","gender","product_contains_liquid","sm2_product_features","dimensions","country","size","unit","ref","brand_name","is_featured","is_bestseller","occasion","scent","manufacturer_detail","packer_detail","manufacturing_name","fragrance_family","fragrence_personality","authenticity","configurable_variations","configurable_variation_labels","base_image_URL (Desktop)","base_image Label","Additional_images (Comma separated)","base_image_mobile_URL","base_image_mobile_label","Listing page Image (small_image) 300 X300","Listing page Image Label (small_image_label)","My Account page Image  (thumbnail_image) 100 X100","My Account page Image  Label (thumbnail_image_label)","Hover_image Listing Page  300X300 (sm2_hover_image)","how_to_user_img1","Desc_image1","Desc_image1_alt1","Desc_image2","Desc_image2_alt2","Desc_image3","Desc_image3_alt3","Desc_image4","Desc_image4_alt4","Desc_image5","Desc_image5_alt5","Desc_image6","Desc_image6_alt6","Desc_image7","Desc_image7_alt7","Desc_image8","Desc_image8_alt8","Desc_image9","Desc_image9_alt9","Desc_image10","Desc_image10_alt10","Desc_image1_mobile","Desc_image1_alt1_mobile","Desc_image2_mobile","Desc_image2_alt2_mobile","Desc_image3_mobile","Desc_image3_alt3_mobile","Desc_image4_mobile","Desc_image4_alt4_mobile","Desc_image5_mobile","Desc_image5_alt5_mobile","Desc_image6_mobile","Desc_image6_alt6_mobile","Desc_image7_mobile","Desc_image7_alt7_mobile","Desc_image8","Desc_image8_alt8_mobile","Desc_image9_mobile","Desc_image9_alt9_mobile","Desc_image10_mobile","Desc_image10_alt10_mobile"}};
         int rowNum = 0;
         for (Object[] datatype : datawriter) {
             Row rowan = writersheet.createRow(rowNum++);
@@ -90,7 +90,7 @@ public class ParcosImportSys {
             
             
             
-            File myFile = new File("/home/narayan/Downloads/Parcosham.xlsx");
+            File myFile = new File("C:/Users/Shashikant/Downloads/Parcosham.xlsx");
             fis = new FileInputStream(myFile);
             // Finds the workbook instance for XLSX file
             XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
@@ -309,8 +309,158 @@ public class ParcosImportSys {
                       Cell configurablevariationslabel=rowex.createCell(40);
                       configurablevariationslabel.setCellValue("size=Size");
                       
+                      Cell baseimgurl600=rowex.createCell(41);
+                      baseimgurl600.setCellValue(roz.getCell(24,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
                       
+                      Cell baseimglabel=rowex.createCell(42);
+                      baseimglabel.setCellValue(roz.getCell(25,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
                       
+                      Cell additionalImgs=rowex.createCell(43);
+                      additionalImgs.setCellValue(roz.getCell(26,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell baseimgmobileurl=rowex.createCell(44);
+                      baseimgmobileurl.setCellValue(roz.getCell(27,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell baseimgmobilelabel=rowex.createCell(45);
+                      baseimgmobilelabel.setCellValue(roz.getCell(28,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell listingpagesmallimg=rowex.createCell(46);
+                      listingpagesmallimg.setCellValue(roz.getCell(29,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell listingpagesmallimglabel=rowex.createCell(47);
+                      listingpagesmallimglabel.setCellValue(roz.getCell(30,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell myaccountpgimg=rowex.createCell(48);
+                      myaccountpgimg.setCellValue(roz.getCell(31,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell myaccountpgimglabel=rowex.createCell(49);
+                      myaccountpgimglabel.setCellValue(roz.getCell(32,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell hoverimglistingpg=rowex.createCell(50);
+                      hoverimglistingpg.setCellValue(roz.getCell(33,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell howtouseimg1=rowex.createCell(51);
+                      howtouseimg1.setCellValue(roz.getCell(34,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg1=rowex.createCell(52);
+                      descimg1.setCellValue(roz.getCell(66,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg1alt1=rowex.createCell(53);
+                      descimg1alt1.setCellValue(roz.getCell(67,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg2=rowex.createCell(54);
+                      descimg2.setCellValue(roz.getCell(68,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg2alt2=rowex.createCell(55);
+                      descimg2alt2.setCellValue(roz.getCell(69,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg3=rowex.createCell(56);
+                      descimg3.setCellValue(roz.getCell(70,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg3alt3=rowex.createCell(57);
+                      descimg3alt3.setCellValue(roz.getCell(71,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg4=rowex.createCell(58);
+                      descimg4.setCellValue(roz.getCell(72,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg4alt4=rowex.createCell(59);
+                      descimg4alt4.setCellValue(roz.getCell(73,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg5=rowex.createCell(60);
+                      descimg5.setCellValue(roz.getCell(74,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg5alt5=rowex.createCell(61);
+                      descimg5alt5.setCellValue(roz.getCell(75,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg6=rowex.createCell(62);
+                      descimg6.setCellValue(roz.getCell(76,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg6alt6=rowex.createCell(63);
+                      descimg6alt6.setCellValue(roz.getCell(77,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg7=rowex.createCell(64);
+                      descimg7.setCellValue(roz.getCell(78,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg7alt7=rowex.createCell(65);
+                      descimg7alt7.setCellValue(roz.getCell(79,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg8=rowex.createCell(66);
+                      descimg8.setCellValue(roz.getCell(80,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg8alt8=rowex.createCell(67);
+                      descimg8alt8.setCellValue(roz.getCell(81,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg9=rowex.createCell(68);
+                      descimg9.setCellValue(roz.getCell(82,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg9alt9=rowex.createCell(69);
+                      descimg9alt9.setCellValue(roz.getCell(83,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg10=rowex.createCell(70);
+                      descimg10.setCellValue(roz.getCell(84,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg10alt10=rowex.createCell(71);
+                      descimg10alt10.setCellValue(roz.getCell(85,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg1mob=rowex.createCell(72);
+                      descimg1mob.setCellValue(roz.getCell(86,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg1mobalt=rowex.createCell(73);
+                      descimg1mobalt.setCellValue(roz.getCell(87,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg2mob=rowex.createCell(74);
+                      descimg2mob.setCellValue(roz.getCell(88,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg2mobalt=rowex.createCell(75);
+                      descimg2mobalt.setCellValue(roz.getCell(89,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg3mob=rowex.createCell(76);
+                      descimg3mob.setCellValue(roz.getCell(90,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg3mobalt=rowex.createCell(77);
+                      descimg3mobalt.setCellValue(roz.getCell(91,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg4mob=rowex.createCell(78);
+                      descimg4mob.setCellValue(roz.getCell(92,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg4mobalt=rowex.createCell(79);
+                      descimg4mobalt.setCellValue(roz.getCell(93,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg5mob=rowex.createCell(80);
+                      descimg5mob.setCellValue(roz.getCell(94,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg5mobalt=rowex.createCell(81);
+                      descimg5mobalt.setCellValue(roz.getCell(95,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg6mob=rowex.createCell(82);
+                      descimg6mob.setCellValue(roz.getCell(96,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg6mobalt=rowex.createCell(83);
+                      descimg6mobalt.setCellValue(roz.getCell(97,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg7mob=rowex.createCell(84);
+                      descimg7mob.setCellValue(roz.getCell(98,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg7mobalt=rowex.createCell(85);
+                      descimg7mobalt.setCellValue(roz.getCell(99,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg8mob=rowex.createCell(86);
+                      descimg8mob.setCellValue(roz.getCell(100,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg8mobalt=rowex.createCell(87);
+                      descimg8mobalt.setCellValue(roz.getCell(101,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg9mob=rowex.createCell(88);
+                      descimg9mob.setCellValue(roz.getCell(102,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg9mobalt=rowex.createCell(89);
+                      descimg9mobalt.setCellValue(roz.getCell(103,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg10mob=rowex.createCell(90);
+                      descimg10mob.setCellValue(roz.getCell(104,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg10mobalt=rowex.createCell(91);
+                      descimg10mobalt.setCellValue(roz.getCell(105,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
                       
                       childs.clear();
                       
@@ -486,6 +636,159 @@ public class ParcosImportSys {
                       
                       Cell configurablevariationslabel=rowex.createCell(40);
                       configurablevariationslabel.setCellValue("size=Size");
+                      
+                      Cell baseimgurl600=rowex.createCell(41);
+                      baseimgurl600.setCellValue(roz.getCell(24,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell baseimglabel=rowex.createCell(42);
+                      baseimglabel.setCellValue(roz.getCell(25,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell additionalImgs=rowex.createCell(43);
+                      additionalImgs.setCellValue(roz.getCell(26,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell baseimgmobileurl=rowex.createCell(44);
+                      baseimgmobileurl.setCellValue(roz.getCell(27,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell baseimgmobilelabel=rowex.createCell(45);
+                      baseimgmobilelabel.setCellValue(roz.getCell(28,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell listingpagesmallimg=rowex.createCell(46);
+                      listingpagesmallimg.setCellValue(roz.getCell(29,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell listingpagesmallimglabel=rowex.createCell(47);
+                      listingpagesmallimglabel.setCellValue(roz.getCell(30,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell myaccountpgimg=rowex.createCell(48);
+                      myaccountpgimg.setCellValue(roz.getCell(31,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell myaccountpgimglabel=rowex.createCell(49);
+                      myaccountpgimglabel.setCellValue(roz.getCell(32,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell hoverimglistingpg=rowex.createCell(50);
+                      hoverimglistingpg.setCellValue(roz.getCell(33,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell howtouseimg1=rowex.createCell(51);
+                      howtouseimg1.setCellValue(roz.getCell(34,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg1=rowex.createCell(52);
+                      descimg1.setCellValue(roz.getCell(66,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg1alt1=rowex.createCell(53);
+                      descimg1alt1.setCellValue(roz.getCell(67,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg2=rowex.createCell(54);
+                      descimg2.setCellValue(roz.getCell(68,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg2alt2=rowex.createCell(55);
+                      descimg2alt2.setCellValue(roz.getCell(69,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg3=rowex.createCell(56);
+                      descimg3.setCellValue(roz.getCell(70,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg3alt3=rowex.createCell(57);
+                      descimg3alt3.setCellValue(roz.getCell(71,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg4=rowex.createCell(58);
+                      descimg4.setCellValue(roz.getCell(72,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg4alt4=rowex.createCell(59);
+                      descimg4alt4.setCellValue(roz.getCell(73,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg5=rowex.createCell(60);
+                      descimg5.setCellValue(roz.getCell(74,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg5alt5=rowex.createCell(61);
+                      descimg5alt5.setCellValue(roz.getCell(75,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg6=rowex.createCell(62);
+                      descimg6.setCellValue(roz.getCell(76,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg6alt6=rowex.createCell(63);
+                      descimg6alt6.setCellValue(roz.getCell(77,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg7=rowex.createCell(64);
+                      descimg7.setCellValue(roz.getCell(78,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg7alt7=rowex.createCell(65);
+                      descimg7alt7.setCellValue(roz.getCell(79,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg8=rowex.createCell(66);
+                      descimg8.setCellValue(roz.getCell(80,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg8alt8=rowex.createCell(67);
+                      descimg8alt8.setCellValue(roz.getCell(81,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg9=rowex.createCell(68);
+                      descimg9.setCellValue(roz.getCell(82,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg9alt9=rowex.createCell(69);
+                      descimg9alt9.setCellValue(roz.getCell(83,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg10=rowex.createCell(70);
+                      descimg10.setCellValue(roz.getCell(84,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg10alt10=rowex.createCell(71);
+                      descimg10alt10.setCellValue(roz.getCell(85,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg1mob=rowex.createCell(72);
+                      descimg1mob.setCellValue(roz.getCell(86,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg1mobalt=rowex.createCell(73);
+                      descimg1mobalt.setCellValue(roz.getCell(87,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg2mob=rowex.createCell(74);
+                      descimg2mob.setCellValue(roz.getCell(88,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg2mobalt=rowex.createCell(75);
+                      descimg2mobalt.setCellValue(roz.getCell(89,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg3mob=rowex.createCell(76);
+                      descimg3mob.setCellValue(roz.getCell(90,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg3mobalt=rowex.createCell(77);
+                      descimg3mobalt.setCellValue(roz.getCell(91,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg4mob=rowex.createCell(78);
+                      descimg4mob.setCellValue(roz.getCell(92,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg4mobalt=rowex.createCell(79);
+                      descimg4mobalt.setCellValue(roz.getCell(93,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg5mob=rowex.createCell(80);
+                      descimg5mob.setCellValue(roz.getCell(94,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg5mobalt=rowex.createCell(81);
+                      descimg5mobalt.setCellValue(roz.getCell(95,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg6mob=rowex.createCell(82);
+                      descimg6mob.setCellValue(roz.getCell(96,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg6mobalt=rowex.createCell(83);
+                      descimg6mobalt.setCellValue(roz.getCell(97,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg7mob=rowex.createCell(84);
+                      descimg7mob.setCellValue(roz.getCell(98,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg7mobalt=rowex.createCell(85);
+                      descimg7mobalt.setCellValue(roz.getCell(99,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg8mob=rowex.createCell(86);
+                      descimg8mob.setCellValue(roz.getCell(100,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg8mobalt=rowex.createCell(87);
+                      descimg8mobalt.setCellValue(roz.getCell(101,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg9mob=rowex.createCell(88);
+                      descimg9mob.setCellValue(roz.getCell(102,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg9mobalt=rowex.createCell(89);
+                      descimg9mobalt.setCellValue(roz.getCell(103,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg10mob=rowex.createCell(90);
+                      descimg10mob.setCellValue(roz.getCell(104,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      Cell descimg10mobalt=rowex.createCell(91);
+                      descimg10mobalt.setCellValue(roz.getCell(105,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
                       
                       lastparentid=globalcount;    
                       childs.clear();
@@ -870,7 +1173,7 @@ public class ParcosImportSys {
             
 
             
-        try (FileOutputStream outputStream = new FileOutputStream("/home/narayan/ParcosDumpNew.xlsx")) {
+        try (FileOutputStream outputStream = new FileOutputStream("C:/Users/Shashikant/Downloads/ParcosDumpNew.xlsx")) {
             writerworkbook.write(outputStream);
         }
 
