@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package parcosimportsys;
 
@@ -25,11 +25,28 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.DataFormat;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 /**
  *
  * @author narayan
  */
-public class ParcosImportSys {
+public class MakeupImportSys2 {
 
     /**
      * @param args the command line arguments
@@ -90,7 +107,7 @@ public class ParcosImportSys {
             
             
             
-            File myFile = new File("/home/narayan/Downloads/Parcosham.xlsx");
+            File myFile = new File("/home/narayan/Downloads/makupmass.xlsx");
             fis = new FileInputStream(myFile);
             // Finds the workbook instance for XLSX file
             XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
@@ -165,14 +182,14 @@ public class ParcosImportSys {
                       celldesc.setCellValue(roz.getCell(8,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
                       
                       Cell cellmeta=rowex.createCell(7);
-                      cellmeta.setCellValue(roz.getCell(17,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                      cellmeta.setCellValue(roz.getCell(15,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
             
                       
                       Cell cellmetakeywords=rowex.createCell(8);
-                      cellmetakeywords.setCellValue(roz.getCell(18,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                      cellmetakeywords.setCellValue(roz.getCell(16,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
                       
                       Cell cellmetadesc=rowex.createCell(9);
-                      cellmetadesc.setCellValue(roz.getCell(19,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                      cellmetadesc.setCellValue(roz.getCell(17,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
 
                       Cell cellprodweb=rowex.createCell(10);
                       cellprodweb.setCellValue("base");
@@ -189,12 +206,12 @@ public class ParcosImportSys {
                       cellprodonline.setCellValue("1");              
 
                       Cell celltaxclass=rowex.createCell(14);
-                      celltaxclass.setCellValue(roz.getCell(13,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                      celltaxclass.setCellValue(roz.getCell(12,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
 
 
                       Cell cellhsn=rowex.createCell(15);
                       cellhsn.setCellStyle(cellStyle);
-                      cellhsn.setCellValue(roz.getCell(14,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                      cellhsn.setCellValue(roz.getCell(13,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
             
                       
                       Cell cellvisibility=rowex.createCell(16);
@@ -214,7 +231,7 @@ public class ParcosImportSys {
                       
                       
                       Cell cellgender=rowex.createCell(20);
-                      cellgender.setCellValue(roz.getCell(22,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                      cellgender.setCellValue(roz.getCell(19,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
                       
                       Cell cellcontainsliquid=rowex.createCell(21);
                       cellcontainsliquid.setCellValue(roz.getCell(23,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
@@ -232,13 +249,13 @@ public class ParcosImportSys {
                       
                       
                       Cell cellbotsize=rowex.createCell(25);
-                      String poko=roz.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+                      String poko=roz.getCell(27,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
                       StringTokenizer stk=new StringTokenizer(poko,".");
-                      cellbotsize.setCellValue(stk.nextToken());
+                      cellbotsize.setCellValue(poko);
                       
                       
                       Cell cellunits=rowex.createCell(26);
-                      cellunits.setCellValue(roz.getCell(52,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      cellunits.setCellValue(roz.getCell(28,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
 
                       
                       Cell cellrefs=rowex.createCell(27);
@@ -289,16 +306,16 @@ public class ParcosImportSys {
                           Row rowtmp=mySheet.getRow(childs.get(chx).getNodenumber());
                           System.out.println("FOUND THE NOS AS FOLLOWS:"+childs.get(chx).getNodenumber());
                           if(sizex==chx){
-                            String pokox=roz.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+                            String pokox=roz.getCell(27,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
                             StringTokenizer stkx=new StringTokenizer(pokox,".");
                             //cellbotsize.setCellValue(stkx.nextToken());
-                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+stkx.nextToken()+"";
+                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+pokox+"";
                           }
                           else {
                               
-                            String pokox=roz.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+                            String pokox=roz.getCell(27,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
                             StringTokenizer stkx=new StringTokenizer(pokox,".");
-                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+stkx.nextToken()+"|";
+                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+pokox+"|";
                           }
                           System.out.println("Generated String as follows.");
                       }
@@ -308,8 +325,6 @@ public class ParcosImportSys {
                       
                       Cell configurablevariationslabel=rowex.createCell(40);
                       configurablevariationslabel.setCellValue("size=Size");
-                      
-                      
                       
                       
                       childs.clear();
@@ -350,14 +365,14 @@ public class ParcosImportSys {
                       celldesc.setCellValue(roz.getCell(8,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
                       
                       Cell cellmeta=rowex.createCell(7);
-                      cellmeta.setCellValue(roz.getCell(17,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                      cellmeta.setCellValue(roz.getCell(15,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
             
                       
                       Cell cellmetakeywords=rowex.createCell(8);
-                      cellmetakeywords.setCellValue(roz.getCell(18,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                      cellmetakeywords.setCellValue(roz.getCell(16,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
                       
                       Cell cellmetadesc=rowex.createCell(9);
-                      cellmetadesc.setCellValue(roz.getCell(19,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                      cellmetadesc.setCellValue(roz.getCell(17,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
 
                       Cell cellprodweb=rowex.createCell(10);
                       cellprodweb.setCellValue("base");
@@ -375,12 +390,12 @@ public class ParcosImportSys {
                       cellprodonline.setCellValue("1");              
 
                       Cell celltaxclass=rowex.createCell(14);
-                      celltaxclass.setCellValue(roz.getCell(13,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                      celltaxclass.setCellValue(roz.getCell(12,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
 
 
                       Cell cellhsn=rowex.createCell(15);
                       cellhsn.setCellStyle(cellStyle);
-                      cellhsn.setCellValue(roz.getCell(14,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                      cellhsn.setCellValue(roz.getCell(13,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
             
                       
                       Cell cellvisibility=rowex.createCell(16);
@@ -400,7 +415,7 @@ public class ParcosImportSys {
                       
                       
                       Cell cellgender=rowex.createCell(20);
-                      cellgender.setCellValue(roz.getCell(22,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                      cellgender.setCellValue(roz.getCell(19,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
                       
                       Cell cellcontainsliquid=rowex.createCell(21);
                       cellcontainsliquid.setCellValue(roz.getCell(23,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
@@ -418,12 +433,12 @@ public class ParcosImportSys {
                       
                       
                       Cell cellbotsize=rowex.createCell(25);
-                      String poko=roz.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
-                      StringTokenizer stk=new StringTokenizer(poko,".");
-                      cellbotsize.setCellValue(stk.nextToken());
+                      String poko=roz.getCell(27,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+                    //  StringTokenizer stk=new StringTokenizer(poko,".");
+                      cellbotsize.setCellValue(poko);
                       
                       Cell cellunits=rowex.createCell(26);
-                      cellunits.setCellValue(roz.getCell(52,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      cellunits.setCellValue(roz.getCell(28,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
 
                       
                       Cell cellrefs=rowex.createCell(27);
@@ -473,10 +488,10 @@ public class ParcosImportSys {
                           Row rowtmp=mySheet.getRow(childs.get(chx).getNodenumber());
                           System.out.println("FOUND THE NOS AS FOLLOWS:"+childs.get(chx).getNodenumber());
                           if(sizex==chx){
-                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+rowtmp.getCell(51).toString()+"";
+                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+rowtmp.getCell(27).toString()+"";
                           }
                           else {
-                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+rowtmp.getCell(51).toString()+"|";
+                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+rowtmp.getCell(27).toString()+"|";
                           }
                           System.out.println("Generated String as follows.");
                       }
@@ -523,13 +538,14 @@ public class ParcosImportSys {
                 cellcategories.setCellValue("");
                 
                 
-                String poko=rox.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+                String poko=rox.getCell(27,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
                 StringTokenizer stke=new StringTokenizer(poko,".");
-                String sizeam=stke.nextToken();
+                //String sizeam=stke.nextToken();
+                String sizeam=poko;
 //                cellbotsize.setCellValue(rox.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
 
 
-                String mlsizer=rox.getCell(52,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+                String mlsizer=rox.getCell(28,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
 
                 
                 
@@ -541,14 +557,14 @@ public class ParcosImportSys {
                 celldesc.setCellValue(rox.getCell(8,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());            
             
                 Cell cellmeta=rowex.createCell(7);
-                cellmeta.setCellValue(rox.getCell(17,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                cellmeta.setCellValue(rox.getCell(15,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
                 
                 
                 Cell cellmetakeywords=rowex.createCell(8);
-                cellmetakeywords.setCellValue(rox.getCell(18,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                cellmetakeywords.setCellValue(rox.getCell(16,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
             
                 Cell cellmetadesc=rowex.createCell(9);
-                cellmetadesc.setCellValue(rox.getCell(19,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                cellmetadesc.setCellValue(rox.getCell(17,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
                 
                 Cell cellprodweb=rowex.createCell(10);
                 cellprodweb.setCellValue("base");
@@ -566,11 +582,11 @@ public class ParcosImportSys {
                 cellprodonline.setCellValue("1");              
 
                  Cell celltaxclass=rowex.createCell(14);
-                 celltaxclass.setCellValue(rox.getCell(13,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                 celltaxclass.setCellValue(rox.getCell(12,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
 
                 Cell cellhsn=rowex.createCell(15);
                 cellhsn.setCellStyle(cellStyle);
-                cellhsn.setCellValue(rox.getCell(14,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                cellhsn.setCellValue(rox.getCell(13,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
                  
                 
                 Cell cellvisibility=rowex.createCell(16);
@@ -588,7 +604,7 @@ public class ParcosImportSys {
                 cellfragrancecolor.setCellValue("Transparent");
                 
                 Cell cellgender=rowex.createCell(20);
-                cellgender.setCellValue(rox.getCell(22,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                cellgender.setCellValue(rox.getCell(19,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
                 
                 
                 Cell cellcontainsliquid=rowex.createCell(21);
@@ -609,13 +625,13 @@ public class ParcosImportSys {
 
 
                 Cell cellbotsize=rowex.createCell(25);
-                String pokon=rox.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+                String pokon=rox.getCell(27,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
                 StringTokenizer stk=new StringTokenizer(pokon,".");
-                cellbotsize.setCellValue(stk.nextToken());
+                cellbotsize.setCellValue(pokon);
 //                cellbotsize.setCellValue(rox.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
 
                 Cell cellunits=rowex.createCell(26);
-                cellunits.setCellValue(rox.getCell(52,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                cellunits.setCellValue(rox.getCell(28,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
 
                 
                 Cell cellrefs=rowex.createCell(27);
@@ -699,13 +715,13 @@ public class ParcosImportSys {
             
             
             Cell cellmeta=rowexl.createCell(7);
-            cellmeta.setCellValue(ron.getCell(17,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+            cellmeta.setCellValue(ron.getCell(15,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
 
             Cell cellmetakeywords=rowexl.createCell(8);
-            cellmetakeywords.setCellValue(ron.getCell(18,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+            cellmetakeywords.setCellValue(ron.getCell(16,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
 
             Cell cellmetadesc=rowexl.createCell(9);
-            cellmetadesc.setCellValue(ron.getCell(19,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+            cellmetadesc.setCellValue(ron.getCell(17,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
             
             Cell cellprodweb=rowexl.createCell(10);
             cellprodweb.setCellValue("base");  
@@ -723,11 +739,16 @@ public class ParcosImportSys {
             cellprodonline.setCellValue("1");   
             
             Cell celltaxclass=rowexl.createCell(14);
-            celltaxclass.setCellValue(ron.getCell(13,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+            celltaxclass.setCellValue(ron.getCell(12,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
 
             Cell cellhsn=rowexl.createCell(15);
             cellhsn.setCellStyle(cellStyle);
-            cellhsn.setCellValue(ron.getCell(14,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+            DataFormatter dataFormatter = new DataFormatter();
+            
+            String formattedCellStr = dataFormatter.formatCellValue(ron.getCell(13,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK));
+
+          //  System.out.println("HSN Code is "+ron.getCell(13,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getLo);
+            cellhsn.setCellValue(formattedCellStr);           
 
             Cell cellvisibility=rowexl.createCell(16);
             cellvisibility.setCellValue("Catalog, Search");
@@ -743,7 +764,7 @@ public class ParcosImportSys {
             cellfragrancecolor.setCellValue("Transparent");
             
             Cell cellgender=rowexl.createCell(20);
-            cellgender.setCellValue(ron.getCell(22,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+            cellgender.setCellValue(ron.getCell(19,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
 
             
             Cell cellcontainsliquid=rowexl.createCell(21);
@@ -762,14 +783,14 @@ public class ParcosImportSys {
             cellcountry.setCellValue(ron.getCell(47,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
 
             Cell cellbotsize=rowexl.createCell(25);
-            String poko=ron.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+            String poko=ron.getCell(27,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
             StringTokenizer stk=new StringTokenizer(poko,".");
-            cellbotsize.setCellValue(stk.nextToken());
+            cellbotsize.setCellValue(poko);
            // cellbotsize.setCellValue(ron.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
              
             
             Cell cellunits=rowexl.createCell(26);
-            cellunits.setCellValue(ron.getCell(52,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+            cellunits.setCellValue(ron.getCell(28,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
             
             
             Cell cellrefs=rowexl.createCell(27);
@@ -819,10 +840,10 @@ public class ParcosImportSys {
             for(int chx=0;chx<childs.size();chx++) {
                 Row rowtmp=mySheet.getRow(childs.get(chx).getNodenumber());
                 if(sizex==chx){
-                genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+rowtmp.getCell(51).toString()+"";
+                genrated=genrated+rowtmp.getCell(0).toString()+","+rowtmp.getCell(27).toString()+"";
                 }
                 else {
-                genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+rowtmp.getCell(51).toString()+"|";
+                genrated=genrated+rowtmp.getCell(0).toString()+","+rowtmp.getCell(27).toString()+"|";
                 }
             }
 
@@ -870,7 +891,7 @@ public class ParcosImportSys {
             
 
             
-        try (FileOutputStream outputStream = new FileOutputStream("/home/narayan/ParcosDumpNew.xlsx")) {
+        try (FileOutputStream outputStream = new FileOutputStream("/home/narayan/MakeupDump.xlsx")) {
             writerworkbook.write(outputStream);
         }
 

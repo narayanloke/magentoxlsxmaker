@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package parcosimportsys;
 
@@ -29,7 +29,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  *
  * @author narayan
  */
-public class ParcosImportSys {
+public class MakeupImportSys {
 
     /**
      * @param args the command line arguments
@@ -73,7 +73,11 @@ public class ParcosImportSys {
   
         // Creating an empty TreeMap of string and Object][]
         // type
-        Object[][] datawriter = {{ "sku","store_view_code","attribute_set_code","product_type","categories","name","description","meta_title","meta_keyword","meta_description","product_websites","short_description","weight","product_online","tax_class_name","hsn_code","visibility","price","shelf_life","fregrance_color_name","gender","product_contains_liquid","sm2_product_features","dimensions","country","size","unit","ref","brand_name","is_featured","is_bestseller","occasion","scent","manufacturer_detail","packer_detail","manufacturing_name","fragrance_family","fragrence_personality","authenticity","configurable_variations","configurable_variation_labels"}};
+        //"sku","store_view_code","attribute_set_code","product_type","categories","product_websites","name","description","short_description","weight","product_online","tax_class_name","visibility","price","special_price","special_price_from_date","special_price_to_date","url_key","meta_title","meta_keywords","meta_description","base_image","base_image_label","small_image","small_image_label","thumbnail_image","thumbnail_image_label","swatch_image","swatch_image_label","created_at","updated_at","new_from_date","new_to_date","display_product_options_in","map_price","msrp_price","map_enabled","gift_message_available","custom_design","custom_design_from","custom_design_to","custom_layout_update","page_layout","product_options_container","msrp_display_actual_price_type","country_of_manufacture","additional_attributes","qty","out_of_stock_qty","use_config_min_qty","is_qty_decimal","allow_backorders","use_config_backorders","min_cart_qty","use_config_min_sale_qty","max_cart_qty","use_config_max_sale_qty","is_in_stock","notify_on_stock_below","use_config_notify_stock_qty","manage_stock","use_config_manage_stock","use_config_qty_increments","qty_increments","use_config_enable_qty_inc","enable_qty_increments","is_decimal_divided","website_id","related_skus","related_position","crosssell_skus","crosssell_position","upsell_skus","upsell_position","additional_images","additional_image_labels","hide_from_product_page","custom_options","bundle_price_type","bundle_sku_type","bundle_price_view","bundle_weight_type","bundle_values","bundle_shipment_type","associated_skus","downloadable_links","downloadable_samples","configurable_variations","configurable_variation_labels"
+        
+
+        
+        Object[][] datawriter = {{ "sku","store_view_code","attribute_set_code","product_type","categories","product_websites","name","description","short_description","weight","product_online","tax_class_name","visibility","price","special_price","special_price_from_date","special_price_to_date","url_key","meta_title","meta_keywords","meta_description","base_image","base_image_label","small_image","small_image_label","thumbnail_image","thumbnail_image_label","swatch_image","swatch_image_label","created_at","updated_at","new_from_date","new_to_date","display_product_options_in","map_price","msrp_price","map_enabled","gift_message_available","custom_design","custom_design_from","custom_design_to","custom_layout_update","page_layout","product_options_container","msrp_display_actual_price_type","country_of_manufacture","additional_attributes","qty","out_of_stock_qty","use_config_min_qty","is_qty_decimal","allow_backorders","use_config_backorders","min_cart_qty","use_config_min_sale_qty","max_cart_qty","use_config_max_sale_qty","is_in_stock","notify_on_stock_below","use_config_notify_stock_qty","manage_stock","use_config_manage_stock","use_config_qty_increments","qty_increments","use_config_enable_qty_inc","enable_qty_increments","is_decimal_divided","website_id","related_skus","related_position","crosssell_skus","crosssell_position","upsell_skus","upsell_position","additional_images","additional_image_labels","hide_from_product_page","custom_options","bundle_price_type","bundle_sku_type","bundle_price_view","bundle_weight_type","bundle_values","bundle_shipment_type","associated_skus","downloadable_links","downloadable_samples","configurable_variations","configurable_variation_labels" }};
         int rowNum = 0;
         for (Object[] datatype : datawriter) {
             Row rowan = writersheet.createRow(rowNum++);
@@ -90,7 +94,7 @@ public class ParcosImportSys {
             
             
             
-            File myFile = new File("/home/narayan/Downloads/Parcosham.xlsx");
+            File myFile = new File("/home/narayan/Downloads/makupmass.xlsx");
             fis = new FileInputStream(myFile);
             // Finds the workbook instance for XLSX file
             XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
@@ -140,6 +144,12 @@ public class ParcosImportSys {
                 if(ncs.get(i).getClassifier().equals("Parent")){
                     if(temp!=null) {
 
+                     
+ //"sku","store_view_code","attribute_set_code","product_type","categories","product_websites","name",
+ //"description","short_description","weight","product_online","tax_class_name","visibility","price","special_price","special_price_from_date","special_price_to_date","url_key","meta_title","meta_keywords","meta_description","base_image","base_image_label","small_image","small_image_label","thumbnail_image","thumbnail_image_label","swatch_image","swatch_image_label","created_at","updated_at","new_from_date","new_to_date","display_product_options_in","map_price","msrp_price","map_enabled","gift_message_available","custom_design","custom_design_from","custom_design_to","custom_layout_update","page_layout","product_options_container","msrp_display_actual_price_type","country_of_manufacture","additional_attributes","qty","out_of_stock_qty","use_config_min_qty","is_qty_decimal","allow_backorders","use_config_backorders","min_cart_qty","use_config_min_sale_qty","max_cart_qty","use_config_max_sale_qty","is_in_stock","notify_on_stock_below","use_config_notify_stock_qty","manage_stock","use_config_manage_stock","use_config_qty_increments","qty_increments","use_config_enable_qty_inc","enable_qty_increments","is_decimal_divided","website_id","related_skus","related_position","crosssell_skus","crosssell_position","upsell_skus","upsell_position","additional_images","additional_image_labels","hide_from_product_page","custom_options","bundle_price_type","bundle_sku_type","bundle_price_view","bundle_weight_type","bundle_values","bundle_shipment_type","associated_skus","downloadable_links","downloadable_samples","configurable_variations","configurable_variation_labels"
+   
+                        
+                        
                       Row roz=mySheet.getRow(ncs.get(i).getNodenumber());  
                       System.out.println("Node ID:"+temp.getNodenumber()+" Node Classifier:"+temp.getClassifier()+" Value of SKU:"+roz.getCell(0)+"-P"+"  Global Count:"+globalcount);
                       
@@ -158,11 +168,50 @@ public class ParcosImportSys {
                       Cell cellcategories=rowex.createCell(4);
                       cellcategories.setCellValue("");
                      
-                      Cell cellname=rowex.createCell(5);
+                      Cell cellprodweb=rowex.createCell(5);
+                      cellprodweb.setCellValue("base");
+                      
+                      Cell cellname=rowex.createCell(6);
                       cellname.setCellValue(roz.getCell(7,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString()); 
                 
-                      Cell celldesc=rowex.createCell(6);
+                      Cell celldesc=rowex.createCell(7);
                       celldesc.setCellValue(roz.getCell(8,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+
+                      Cell cellshortdesc=rowex.createCell(8);
+                      cellshortdesc.setCellValue("");  
+                      
+                      
+                      Cell cellweight=rowex.createCell(9);
+                      StringTokenizer stkwt=new StringTokenizer(roz.getCell(10,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString(),".");
+                      cellweight.setCellValue(stkwt.nextToken());
+                      
+                      
+                      Cell cellprodonline=rowex.createCell(10);
+                      cellprodonline.setCellValue("1");              
+                      
+                      
+                      Cell celltaxclass=rowex.createCell(11);
+                      celltaxclass.setCellValue(roz.getCell(13,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                      
+                      
+                      Cell cellvisibility=rowex.createCell(12);
+                      cellvisibility.setCellValue("Catalog, Search");
+
+                      
+                      Cell cellprice=rowex.createCell(13);
+                      cellprice.setCellValue(roz.getCell(11,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+
+                      
+                      Cell cellurlkey=rowex.createCell(17);
+                      cellurlkey.setCellValue("");           
+
+                      
+                      
+                      
+                      
+                      
+                      
+                      
                       
                       Cell cellmeta=rowex.createCell(7);
                       cellmeta.setCellValue(roz.getCell(17,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
@@ -174,22 +223,14 @@ public class ParcosImportSys {
                       Cell cellmetadesc=rowex.createCell(9);
                       cellmetadesc.setCellValue(roz.getCell(19,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
 
-                      Cell cellprodweb=rowex.createCell(10);
-                      cellprodweb.setCellValue("base");
                       
-                      Cell cellshortdesc=rowex.createCell(11);
-                      cellshortdesc.setCellValue("");  
-                      
-                      
-                      Cell cellweight=rowex.createCell(12);
-                      StringTokenizer stkwt=new StringTokenizer(roz.getCell(10,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString(),".");
-                      cellweight.setCellValue(stkwt.nextToken());
-                      
-                      Cell cellprodonline=rowex.createCell(13);
-                      cellprodonline.setCellValue("1");              
 
-                      Cell celltaxclass=rowex.createCell(14);
-                      celltaxclass.setCellValue(roz.getCell(13,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                      
+                      
+                      
+                      
+
+                      
 
 
                       Cell cellhsn=rowex.createCell(15);
@@ -197,12 +238,9 @@ public class ParcosImportSys {
                       cellhsn.setCellValue(roz.getCell(14,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
             
                       
-                      Cell cellvisibility=rowex.createCell(16);
-                      cellvisibility.setCellValue("Catalog, Search");
 
                       
-                      Cell cellprice=rowex.createCell(17);
-                      cellprice.setCellValue(roz.getCell(11,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                      
 
 
                       Cell cellshelflife=rowex.createCell(18);
@@ -233,8 +271,8 @@ public class ParcosImportSys {
                       
                       Cell cellbotsize=rowex.createCell(25);
                       String poko=roz.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
-                      StringTokenizer stk=new StringTokenizer(poko,".");
-                      cellbotsize.setCellValue(stk.nextToken());
+                     // StringTokenizer stk=new StringTokenizer(poko,".");
+                      cellbotsize.setCellValue(poko);
                       
                       
                       Cell cellunits=rowex.createCell(26);
@@ -290,15 +328,15 @@ public class ParcosImportSys {
                           System.out.println("FOUND THE NOS AS FOLLOWS:"+childs.get(chx).getNodenumber());
                           if(sizex==chx){
                             String pokox=roz.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
-                            StringTokenizer stkx=new StringTokenizer(pokox,".");
+                            //StringTokenizer stkx=new StringTokenizer(pokox,".");
                             //cellbotsize.setCellValue(stkx.nextToken());
-                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+stkx.nextToken()+"";
+                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+pokox+"";
                           }
                           else {
                               
                             String pokox=roz.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
-                            StringTokenizer stkx=new StringTokenizer(pokox,".");
-                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+stkx.nextToken()+"|";
+                            //StringTokenizer stkx=new StringTokenizer(pokox,".");
+                          genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+pokox+"|";
                           }
                           System.out.println("Generated String as follows.");
                       }
@@ -308,8 +346,6 @@ public class ParcosImportSys {
                       
                       Cell configurablevariationslabel=rowex.createCell(40);
                       configurablevariationslabel.setCellValue("size=Size");
-                      
-                      
                       
                       
                       childs.clear();
@@ -419,8 +455,9 @@ public class ParcosImportSys {
                       
                       Cell cellbotsize=rowex.createCell(25);
                       String poko=roz.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
-                      StringTokenizer stk=new StringTokenizer(poko,".");
-                      cellbotsize.setCellValue(stk.nextToken());
+                      //StringTokenizer stk=new StringTokenizer(poko,".");
+                      //cellbotsize.setCellValue(stk.nextToken());
+                      cellbotsize.setCellValue(poko);
                       
                       Cell cellunits=rowex.createCell(26);
                       cellunits.setCellValue(roz.getCell(52,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
@@ -523,13 +560,14 @@ public class ParcosImportSys {
                 cellcategories.setCellValue("");
                 
                 
-                String poko=rox.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
-                StringTokenizer stke=new StringTokenizer(poko,".");
-                String sizeam=stke.nextToken();
+                String poko=rox.getCell(29,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+                //StringTokenizer stke=new StringTokenizer(poko,".");
+                //String sizeam=stke.nextToken();
+                String sizeam=poko;
 //                cellbotsize.setCellValue(rox.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
 
 
-                String mlsizer=rox.getCell(52,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+                String mlsizer=rox.getCell(28,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
 
                 
                 
@@ -610,8 +648,8 @@ public class ParcosImportSys {
 
                 Cell cellbotsize=rowex.createCell(25);
                 String pokon=rox.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
-                StringTokenizer stk=new StringTokenizer(pokon,".");
-                cellbotsize.setCellValue(stk.nextToken());
+               // StringTokenizer stk=new StringTokenizer(pokon,".");
+                cellbotsize.setCellValue(pokon);
 //                cellbotsize.setCellValue(rox.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
 
                 Cell cellunits=rowex.createCell(26);
@@ -763,8 +801,8 @@ public class ParcosImportSys {
 
             Cell cellbotsize=rowexl.createCell(25);
             String poko=ron.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
-            StringTokenizer stk=new StringTokenizer(poko,".");
-            cellbotsize.setCellValue(stk.nextToken());
+           // StringTokenizer stk=new StringTokenizer(poko,".");
+            cellbotsize.setCellValue(poko);
            // cellbotsize.setCellValue(ron.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
              
             
@@ -819,10 +857,10 @@ public class ParcosImportSys {
             for(int chx=0;chx<childs.size();chx++) {
                 Row rowtmp=mySheet.getRow(childs.get(chx).getNodenumber());
                 if(sizex==chx){
-                genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+rowtmp.getCell(51).toString()+"";
+                genrated=genrated+rowtmp.getCell(0).toString()+","+rowtmp.getCell(51).toString()+"";
                 }
                 else {
-                genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+rowtmp.getCell(51).toString()+"|";
+                genrated=genrated+rowtmp.getCell(0).toString()+","+rowtmp.getCell(51).toString()+"|";
                 }
             }
 
@@ -870,7 +908,7 @@ public class ParcosImportSys {
             
 
             
-        try (FileOutputStream outputStream = new FileOutputStream("/home/narayan/ParcosDumpNew.xlsx")) {
+        try (FileOutputStream outputStream = new FileOutputStream("/home/narayan/MakeupDumpNewFx.xlsx")) {
             writerworkbook.write(outputStream);
         }
 
