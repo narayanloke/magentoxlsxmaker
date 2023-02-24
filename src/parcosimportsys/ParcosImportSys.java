@@ -90,7 +90,7 @@ public class ParcosImportSys {
             
             
             
-            File myFile = new File("C:/Users/Shashikant/Downloads/Parcosham.xlsx");
+            File myFile = new File("/home/narayan/Downloads/Parcosham.xlsx");
             fis = new FileInputStream(myFile);
             // Finds the workbook instance for XLSX file
             XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
@@ -289,14 +289,14 @@ public class ParcosImportSys {
                           Row rowtmp=mySheet.getRow(childs.get(chx).getNodenumber());
                           System.out.println("FOUND THE NOS AS FOLLOWS:"+childs.get(chx).getNodenumber());
                           if(sizex==chx){
-                            String pokox=roz.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+                            String pokox=rowtmp.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
                             StringTokenizer stkx=new StringTokenizer(pokox,".");
                             //cellbotsize.setCellValue(stkx.nextToken());
                           genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+stkx.nextToken()+"";
                           }
                           else {
                               
-                            String pokox=roz.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+                            String pokox=rowtmp.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
                             StringTokenizer stkx=new StringTokenizer(pokox,".");
                           genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+stkx.nextToken()+"|";
                           }
@@ -1173,7 +1173,7 @@ public class ParcosImportSys {
             
 
             
-        try (FileOutputStream outputStream = new FileOutputStream("C:/Users/Shashikant/Downloads/ParcosDumpNew.xlsx")) {
+        try (FileOutputStream outputStream = new FileOutputStream("/home/narayan/ParcosDumpNew.xlsx")) {
             writerworkbook.write(outputStream);
         }
 

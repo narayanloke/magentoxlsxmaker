@@ -65,7 +65,7 @@ public class MakeupExcelo {
   
         // Creating an empty TreeMap of string and Object][]
         // type
-        Object[][] datawriter = {{ "sku","store_view_code","attribute_set_code","product_type","categories","product_websites","name","description","short_description","weight","product_online","tax_class_name","visibility","price","special_price","special_price_from_date","special_price_to_date","url_key","meta_title","meta_keywords","meta_description","base_image","base_image_label","small_image","small_image_label","thumbnail_image","thumbnail_image_label","swatch_image","swatch_image_label","created_at","updated_at","new_from_date","new_to_date","display_product_options_in","map_price","msrp_price","map_enabled","gift_message_available","custom_design","custom_design_from","custom_design_to","custom_layout_update","page_layout","product_options_container","msrp_display_actual_price_type","country_of_manufacture","additional_attributes","qty","out_of_stock_qty","use_config_min_qty","is_qty_decimal","allow_backorders","use_config_backorders","min_cart_qty","use_config_min_sale_qty","max_cart_qty","use_config_max_sale_qty","is_in_stock","notify_on_stock_below","use_config_notify_stock_qty","manage_stock","use_config_manage_stock","use_config_qty_increments","qty_increments","use_config_enable_qty_inc","enable_qty_increments","is_decimal_divided","website_id","related_skus","related_position","crosssell_skus","crosssell_position","upsell_skus","upsell_position","additional_images","additional_image_labels","hide_from_product_page","custom_options","bundle_price_type","bundle_sku_type","bundle_price_view","bundle_weight_type","bundle_values","bundle_shipment_type","associated_skus","downloadable_links","downloadable_samples","configurable_variations","configurable_variation_labels" }};
+        Object[][] datawriter = {{ "sku","store_view_code","attribute_set_code","product_type","categories","product_websites","name","description","short_description","weight","product_online","tax_class_name","visibility","price","special_price","special_price_from_date","special_price_to_date","url_key","meta_title","meta_keywords","meta_description","base_image","base_image_label","small_image","small_image_label","thumbnail_image","thumbnail_image_label","swatch_image","swatch_image_label","created_at","updated_at","new_from_date","new_to_date","display_product_options_in","map_price","msrp_price","map_enabled","gift_message_available","custom_design","custom_design_from","custom_design_to","custom_layout_update","page_layout","product_options_container","msrp_display_actual_price_type","country_of_manufacture","additional_attributes","qty","out_of_stock_qty","use_config_min_qty","is_qty_decimal","allow_backorders","use_config_backorders","min_cart_qty","use_config_min_sale_qty","max_cart_qty","use_config_max_sale_qty","is_in_stock","notify_on_stock_below","use_config_notify_stock_qty","manage_stock","use_config_manage_stock","use_config_qty_increments","qty_increments","use_config_enable_qty_inc","enable_qty_increments","is_decimal_divided","website_id","related_skus","related_position","crosssell_skus","crosssell_position","upsell_skus","upsell_position","additional_images","additional_image_labels","hide_from_product_page","custom_options","bundle_price_type","bundle_sku_type","bundle_price_view","bundle_weight_type","bundle_values","bundle_shipment_type","associated_skus","downloadable_links","downloadable_samples","configurable_variations","configurable_variation_labels","sm2_hover_image" }};
         int rowNum = 0;
         for (Object[] datatype : datawriter) {
             Row rowan = writersheet.createRow(rowNum++);
@@ -82,7 +82,7 @@ public class MakeupExcelo {
             
             
             
-            File myFile = new File("C:/Users/Shashikant/Downloads/makupmass.xlsx");
+            File myFile = new File("/home/narayan/Downloads/makupmass.xlsx");
             fis = new FileInputStream(myFile);
             // Finds the workbook instance for XLSX file
             XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
@@ -256,14 +256,14 @@ public class MakeupExcelo {
                           Row rowtmp=mySheet.getRow(childs.get(chx).getNodenumber());
                           System.out.println("FOUND THE NOS AS FOLLOWS:"+childs.get(chx).getNodenumber());
                           if(sizex==chx){
-                            String pokox=roz.getCell(25,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+                            String pokox=rowtmp.getCell(25,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
                             StringTokenizer stkx=new StringTokenizer(pokox,".");
                             //cellbotsize.setCellValue(stkx.nextToken());
                           genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",shade="+pokox+"";
                           }
                           else {
                               
-                            String pokox=roz.getCell(25,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+                            String pokox=rowtmp.getCell(25,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
                             StringTokenizer stkx=new StringTokenizer(pokox,".");
                           genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",shade="+pokox+"|";
                           }
@@ -276,6 +276,8 @@ public class MakeupExcelo {
                       Cell configurablevariationslabel=rowex.createCell(88);
                       configurablevariationslabel.setCellValue("shade=Shade");
                       
+                      Cell cellsm2hoverimage=rowex.createCell(89);
+                      cellsm2hoverimage.setCellValue(roz.getCell(61,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
                       
                       childs.clear();
                       
@@ -420,6 +422,10 @@ public class MakeupExcelo {
                       Cell configurablevariationslabel=rowex.createCell(88);
                       configurablevariationslabel.setCellValue("shade=Shade");
                       
+                      Cell cellsm2hoverimage=rowex.createCell(89);
+                      cellsm2hoverimage.setCellValue(roz.getCell(61,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                      
                       lastparentid=globalcount;    
                       childs.clear();
 //datawriter(String.valueOf(globalcount),new Object[] { roz.getCell(0)+"-P","store_view_code","attribute_set_code","product_type","categories","name","description","meta_title","meta_keyword","meta_description","product_websites","short_description","weight","product_online","tax_class_name","hsn_code","visibility","price","shelf_life","fregrance_color_name","gender","product_contains_liquid","sm2_product_features","dimensions","country","size","unit","ref","brand_name","is_featured","is_bestseller","occasion","scent","manufacturer_detail","packer_detail","manufacturing_name","fragrance_family","fragrence_personality","authenticity","configurable_variations","configurable_variation_labels"});
@@ -555,6 +561,11 @@ public class MakeupExcelo {
                 Cell celladdimages=rowex.createCell(74);
                 celladdimages.setCellValue(rox.getCell(54,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());                
                 
+                
+                Cell cellsm2hoverimage=rowex.createCell(89);
+                cellsm2hoverimage.setCellValue(rox.getCell(61,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                
+                
                 //datawriter.put(String.valueOf(globalcount),new Object[] { rox.getCell(0).toString(),"store_view_code","attribute_set_code","product_type","categories","name","description","meta_title","meta_keyword","meta_description","product_websites","short_description","weight","product_online","tax_class_name","hsn_code","visibility","price","shelf_life","fregrance_color_name","gender","product_contains_liquid","sm2_product_features","dimensions","country","size","unit","ref","brand_name","is_featured","is_bestseller","occasion","scent","manufacturer_detail","packer_detail","manufacturing_name","fragrance_family","fragrence_personality","authenticity","configurable_variations","configurable_variation_labels"});
                 globalcount=globalcount+1;
                 }
@@ -676,10 +687,10 @@ public class MakeupExcelo {
             for(int chx=0;chx<childs.size();chx++) {
                 Row rowtmp=mySheet.getRow(childs.get(chx).getNodenumber());
                 if(sizex==chx){
-                genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+rowtmp.getCell(27).toString()+"";
+                genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",shade="+rowtmp.getCell(25).toString()+"";
                 }
                 else {
-                genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",size="+rowtmp.getCell(27).toString()+"|";
+                genrated=genrated+"sku="+rowtmp.getCell(0).toString()+",shade="+rowtmp.getCell(25).toString()+"|";
                 }
             }
 
@@ -687,7 +698,11 @@ public class MakeupExcelo {
             configurablevariations.setCellValue(genrated);
 
             Cell configurablevariationslabel=rowexl.createCell(88);
-            configurablevariationslabel.setCellValue("size=Size");
+            configurablevariationslabel.setCellValue("shade=Shade");
+            
+            
+            Cell cellsm2hoverimage=rowexl.createCell(89);
+            cellsm2hoverimage.setCellValue(ron.getCell(61,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
             
             
             childs.clear();
@@ -701,7 +716,7 @@ public class MakeupExcelo {
             
 
             
-        try (FileOutputStream outputStream = new FileOutputStream("C:/Users/Shashikant/Downloads/MakeupDumper.xlsx")) {
+        try (FileOutputStream outputStream = new FileOutputStream("/home/narayan/MakeupDumper.xlsx")) {
             writerworkbook.write(outputStream);
         }
 
