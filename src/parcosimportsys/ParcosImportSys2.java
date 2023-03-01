@@ -1,8 +1,9 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package parcosimportsys;
+
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,11 +26,27 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.DataFormat;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 /**
  *
  * @author narayan
  */
-public class ParcosImportSys {
+public class ParcosImportSys2 {
 
     /**
      * @param args the command line arguments
@@ -1008,6 +1025,192 @@ public class ParcosImportSys {
                 //datawriter.put(String.valueOf(globalcount),new Object[] { rox.getCell(0).toString(),"store_view_code","attribute_set_code","product_type","categories","name","description","meta_title","meta_keyword","meta_description","product_websites","short_description","weight","product_online","tax_class_name","hsn_code","visibility","price","shelf_life","fregrance_color_name","gender","product_contains_liquid","sm2_product_features","dimensions","country","size","unit","ref","brand_name","is_featured","is_bestseller","occasion","scent","manufacturer_detail","packer_detail","manufacturing_name","fragrance_family","fragrence_personality","authenticity","configurable_variations","configurable_variation_labels"});
                 globalcount=globalcount+1;
                 }
+                  else if(ncs.get(i).getClassifier().equals("Single")) {
+                Row rox=mySheet.getRow(ncs.get(i).getNodenumber()); 
+                
+                //childs.add(ncs.get(i));
+                
+                System.out.println("Node ID:"+ncs.get(i).getNodenumber()+" Node Classifier:"+ncs.get(i).getClassifier()+" Value of SKU:"+rox.getCell(0)+"  Global Count:"+globalcount);
+                Cell cellsku=rowex.createCell(0);
+                cellsku.setCellValue(rox.getCell(0,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                
+                Cell cellstoreview=rowex.createCell(1);
+                cellstoreview.setCellValue("");
+                
+                Cell cellattribsetcode=rowex.createCell(2);
+                cellattribsetcode.setCellValue(rox.getCell(2,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString().trim());
+
+                Cell cellproducttype=rowex.createCell(3);
+                cellproducttype.setCellValue("simple");
+                
+                Cell cellcategories=rowex.createCell(4);
+                cellcategories.setCellValue("");
+                
+                
+                String poko=rox.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+                StringTokenizer stke=new StringTokenizer(poko,".");
+                String sizeam=stke.nextToken();
+//                cellbotsize.setCellValue(rox.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+
+
+                String mlsizer=rox.getCell(52,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+
+                
+                
+                Cell cellname=rowex.createCell(5);
+                cellname.setCellValue(rox.getCell(7,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString()+" "+sizeam+" "+mlsizer); 
+             
+                
+                Cell celldesc=rowex.createCell(6);
+                celldesc.setCellValue(rox.getCell(8,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());            
+            
+                Cell cellmeta=rowex.createCell(7);
+                cellmeta.setCellValue(rox.getCell(17,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                
+                
+                Cell cellmetakeywords=rowex.createCell(8);
+                cellmetakeywords.setCellValue(rox.getCell(18,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+            
+                Cell cellmetadesc=rowex.createCell(9);
+                cellmetadesc.setCellValue(rox.getCell(19,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                
+                Cell cellprodweb=rowex.createCell(10);
+                cellprodweb.setCellValue("base");
+                
+                Cell cellshortdesc=rowex.createCell(11);
+                cellshortdesc.setCellValue("");  
+                
+                
+                Cell cellweight=rowex.createCell(12);
+                
+                StringTokenizer stkwt=new StringTokenizer(rox.getCell(10,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString(),".");
+                cellweight.setCellValue(stkwt.nextToken());
+
+                Cell cellprodonline=rowex.createCell(13);
+                cellprodonline.setCellValue("1");              
+
+                 Cell celltaxclass=rowex.createCell(14);
+                 celltaxclass.setCellValue(rox.getCell(13,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+
+                Cell cellhsn=rowex.createCell(15);
+                cellhsn.setCellStyle(cellStyle);
+                cellhsn.setCellValue(rox.getCell(14,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                 
+                
+                Cell cellvisibility=rowex.createCell(16);
+                cellvisibility.setCellValue("Catalog,Search");
+                
+                Cell cellprice=rowex.createCell(17);
+                cellprice.setCellValue(rox.getCell(11,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                 
+   
+                Cell cellshelflife=rowex.createCell(18);
+                cellshelflife.setCellValue(rox.getCell(16,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+
+                
+                Cell cellfragrancecolor=rowex.createCell(19);
+                cellfragrancecolor.setCellValue("Transparent");
+                
+                Cell cellgender=rowex.createCell(20);
+                cellgender.setCellValue(rox.getCell(22,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+                
+                
+                Cell cellcontainsliquid=rowex.createCell(21);
+                cellcontainsliquid.setCellValue(rox.getCell(23,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+
+
+                Cell sm2prodfeatures=rowex.createCell(22);
+                sm2prodfeatures.setCellValue(rox.getCell(34,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+
+                
+                
+                Cell celldimensions=rowex.createCell(23);
+                celldimensions.setCellValue(rox.getCell(46,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+
+                      
+                Cell cellcountry=rowex.createCell(24);
+                cellcountry.setCellValue(rox.getCell(47,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());           
+
+
+                Cell cellbotsize=rowex.createCell(25);
+                String pokon=rox.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString();
+                StringTokenizer stk=new StringTokenizer(pokon,".");
+                cellbotsize.setCellValue(stk.nextToken());
+//                cellbotsize.setCellValue(rox.getCell(51,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+
+                Cell cellunits=rowex.createCell(26);
+                cellunits.setCellValue(rox.getCell(52,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+
+                
+                Cell cellrefs=rowex.createCell(27);
+                StringTokenizer strefs=new StringTokenizer(rox.getCell(53,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString(),".");
+                cellrefs.setCellValue(strefs.nextToken());
+
+            
+                Cell cellbrands=rowex.createCell(28);
+                cellbrands.setCellValue(rox.getCell(54,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+
+                
+                Cell cellisfeatured=rowex.createCell(29);
+                cellisfeatured.setCellValue((rox.getCell(55,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString().equals("Y")?"yes":"no"));
+
+
+                Cell cellisbestseller=rowex.createCell(30);
+                cellisbestseller.setCellValue("");
+                
+                Cell celloccasion=rowex.createCell(31);
+                celloccasion.setCellValue(rox.getCell(56,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+
+                Cell cellscent=rowex.createCell(32);
+                cellscent.setCellValue(rox.getCell(57,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+   
+                Cell cellmanufacturer=rowex.createCell(33);
+                cellmanufacturer.setCellValue(rox.getCell(58,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+   
+                Cell cellpacker=rowex.createCell(34);
+                cellpacker.setCellValue(rox.getCell(59,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+        
+                Cell cellmanufname=rowex.createCell(35);
+                cellmanufname.setCellValue(rox.getCell(60,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+
+                Cell cellfragfamily=rowex.createCell(36);
+                cellfragfamily.setCellValue(rox.getCell(20,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+
+                
+                Cell cellfragpersona=rowex.createCell(37);
+                cellfragpersona.setCellValue(rox.getCell(21,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                
+                
+                
+                 Cell cellauthenticity=rowex.createCell(38);
+                 cellauthenticity.setCellValue(rox.getCell(64,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+
+                 
+                Cell celltopnotes=rowex.createCell(92);
+                celltopnotes.setCellValue(rox.getCell(48,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+
+
+                Cell cellheartnotes=rowex.createCell(93);
+                cellheartnotes.setCellValue(rox.getCell(49,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+
+
+                Cell cellbasenotes=rowex.createCell(94);
+                cellbasenotes.setCellValue(rox.getCell(50,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).toString());
+                      
+                
+                
+                //datawriter.put(String.valueOf(globalcount),new Object[] { rox.getCell(0).toString(),"store_view_code","attribute_set_code","product_type","categories","name","description","meta_title","meta_keyword","meta_description","product_websites","short_description","weight","product_online","tax_class_name","hsn_code","visibility","price","shelf_life","fregrance_color_name","gender","product_contains_liquid","sm2_product_features","dimensions","country","size","unit","ref","brand_name","is_featured","is_bestseller","occasion","scent","manufacturer_detail","packer_detail","manufacturing_name","fragrance_family","fragrence_personality","authenticity","configurable_variations","configurable_variation_labels"});
+                globalcount=globalcount+1;
+                }
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 
             }
             
@@ -1223,7 +1426,7 @@ public class ParcosImportSys {
             
 
             
-        try (FileOutputStream outputStream = new FileOutputStream("/home/narayan/ParcosDumpNew.xlsx")) {
+        try (FileOutputStream outputStream = new FileOutputStream("/home/narayan/ParcosDumpNewX2.xlsx")) {
             writerworkbook.write(outputStream);
         }
 
